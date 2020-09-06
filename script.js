@@ -7,10 +7,10 @@ console.log('Number:', randomNum);
 window.SpeechRecognition = 
     window.SpeechRecognition || window.webkitSpeechRecognition;
 
-let Recognition = new window.SpeechRecognition();
+let recognition = new window.SpeechRecognition();
 
 // Start recognition and game
-Recognition.start();
+recognition.start();
 
 // Capture user speak
 function onSpeak(e) {
@@ -69,3 +69,8 @@ recognition.addEventListener('result', onSpeak);
 // End SR service
 recognition.addEventListener('end', () => recognition.start());
 
+document.body.addEventListener('click', e => {
+    if (e.target.id == 'play-again') {
+        window.location.reload();
+    }
+});
